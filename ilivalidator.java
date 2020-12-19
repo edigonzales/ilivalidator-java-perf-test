@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,jcenter,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ilivalidator:1.11.8 org.apache.commons:commons-lang3:3.11
-//JAVA_OPTIONS -XX:+UseSerialGC -Xmx2048m
+//JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
 import static java.lang.System.*;
 
