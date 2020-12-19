@@ -1,6 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,jcenter,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ilivalidator:1.11.8 org.apache.commons:commons-lang3:3.11
+//JAVA_OPTIONS -XX:+UseSerialGC -Xmx2048m
 
 import static java.lang.System.*;
 
@@ -36,7 +37,7 @@ public class ilivalidator {
 //        }
         
         
-        String inputFilename = Paths.get("/home/stefan/Downloads/ch.so.agi_mopublic_xtf", "ch.so.agi_mopublic_2020-09-08.xtf").toFile().getAbsolutePath();
+        String inputFilename = Paths.get("/Users/stefan/Downloads/ch.so.agi_mopublic_xtf", "ch.so.agi_mopublic_2020-09-08.xtf").toFile().getAbsolutePath();
         boolean valid = Validator.runValidation(inputFilename, settings);
 
         

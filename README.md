@@ -1,5 +1,8 @@
 # ilivalidator-java-perf-test
 
+**USE: //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m**
+
+
 ```
 sdk install jbang
 ```
@@ -22,6 +25,10 @@ jbang edit ilivalidator.java
 
 Info: maxMemory 3620864 KB
 
+
+## todo
+- same gc?
+- max 2GB heap
 
 Adopt:
 
