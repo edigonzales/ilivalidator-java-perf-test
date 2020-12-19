@@ -1,6 +1,8 @@
 # ilivalidator-java-perf-test
 
-**USE: //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m**
+**USE: //JAVA_OPTIONS -XX:+UseParallelGC**
+
+` -Xmx2048m*`
 
 
 ```
