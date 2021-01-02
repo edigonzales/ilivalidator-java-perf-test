@@ -26,12 +26,14 @@ jbang edit ilivalidator.java
 ```
 
 ```
- jbang edit --live ilivalidator.java
+jbang edit --live ilivalidator.java
 ```
 
 ## performance tests
 - Max Heap is set to 2048M for all tests: `-Xmx2048`.
-- Time = Arithmetic mean of 3 runs
+- Time = Arithmetic mean of 3 subsequent runs
+- PopOS 20.04
+- ilivalidator 1.11.8
 
 ### INTERLIS 1 (ITF)
 
@@ -40,7 +42,7 @@ Amtliche Vermessung Kanton BS (220MB file) from https://geodienste.ch/services/a
 | Java Version  | Time (mins:secs) |
 | ------------- | ------------- |
 | Java 8 (adoptopenjdk) | 19:48  |
-| Java 11 (adoptopenjdk + UseG1GC, default gc)  | Content Cell  |
+| Java 11 (adoptopenjdk + UseG1GC, default gc)  | 17:00  |
 | Java 15 (adoptopenjdk + UseG1GC, default gc)  | Content Cell  |
 | Java 11 (adoptopenjdk + UseParallelGC)  | Content Cell  |
 | Java 15 (adoptopenjdk + UseParallelGC)  | Content Cell  |
