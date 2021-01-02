@@ -3,12 +3,15 @@
 **USE: //JAVA_OPTIONS -XX:+UseParallelGC**
 
 ` -Xmx2048m*`
+## jbang
 
+### install
 
 ```
 sdk install jbang
 ```
 
+### init new 'project'
 ```
 jbang init ilivalidator.java
 ```
@@ -17,6 +20,7 @@ jbang init ilivalidator.java
 jbang ilivalidator.java
 ```
 
+### use eclipse (or other ide)
 ```
 jbang edit ilivalidator.java
 ```
@@ -25,7 +29,27 @@ jbang edit ilivalidator.java
  jbang edit --live ilivalidator.java
 ```
 
-Info: maxMemory 3620864 KB
+## performance tests
+- Max Heap is set to 2048M for all tests: `-Xmx2048`.
+- Time = Arithmetic mean of 3 runs
+
+### INTERLIS 1 (ITF)
+
+Amtliche Vermessung Kanton BS (220MB file) from https://geodienste.ch/services/av
+
+| Java Version  | Time (mins:secs) |
+| ------------- | ------------- |
+| Java 8 (adoptopenjdk) | 19:48  |
+| Java 11 (adoptopenjdk + UseG1GC, default gc)  | Content Cell  |
+| Java 15 (adoptopenjdk + UseG1GC, default gc)  | Content Cell  |
+| Java 11 (adoptopenjdk + UseParallelGC)  | Content Cell  |
+| Java 15 (adoptopenjdk + UseParallelGC)  | Content Cell  |
+| Java 8 (graalvm)  | Content Cell  |
+| Java 11 (graalvm + UseG1GC, default gc)  | Content Cell  |
+| Java 11 (graalvm + UseParallelGC)  | Content Cell  |
+
+
+
 
 
 ## todo
