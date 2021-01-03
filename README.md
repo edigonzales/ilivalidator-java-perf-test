@@ -39,17 +39,31 @@ jbang edit --live ilivalidator.java
 
 Amtliche Vermessung Kanton BS (220MB file) from https://geodienste.ch/services/av
 
-| Java Version  | Time (mins:secs) |
-| ------------- | ------------- |
-| Java 8 (adoptopenjdk) | 19:48  |
-| Java 11 (adoptopenjdk + UseG1GC, default gc)  | 17:00  |
-| Java 15 (adoptopenjdk + UseG1GC, default gc)  | Content Cell  |
-| Java 11 (adoptopenjdk + UseParallelGC)  | Content Cell  |
-| Java 15 (adoptopenjdk + UseParallelGC)  | Content Cell  |
-| Java 8 (graalvm)  | Content Cell  |
-| Java 11 (graalvm + UseG1GC, default gc)  | Content Cell  |
-| Java 11 (graalvm + UseParallelGC)  | Content Cell  |
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (adoptopenjdk) | 19:48  | 19:54, 19:40, 19:51 |
+| Java 11 (adoptopenjdk + UseG1GC, default gc)  | 17:00  | 17:40, 16:29, 16:51 |
+| Java 15 (adoptopenjdk + UseG1GC, default gc)  | 18:00  | 18:27, 18:32, 17:04 |
+| Java 11 (adoptopenjdk + UseParallelGC)  | 17:35  | 17:12, 18:39, 16:55 |
+| Java 15 (adoptopenjdk + UseParallelGC)  | 16.51  | 16:44, 16:58, 16:50 |
+| Java 8 (graalvm)  | 19:32  | 19:09, 20:22, 18:35 | 
+| Java 11 (graalvm + UseG1GC, default gc)  | 18:34  | 19:14, 17:37, 18:52 |
+| Java 11 (graalvm + UseParallelGC)  | 18:11  | 18:23, 18:23, 17:47 |
 
+### INTERLIS 2 (XTF)
+
+MOpublic Kanton Solothurn (2.4 GB). No associations.
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (adoptopenjdk) | xx  | x, x, x |
+| Java 11 (adoptopenjdk + UseG1GC, default gc)  | xx  | x, x, x |
+| Java 15 (adoptopenjdk + UseG1GC, default gc)  | xx  | x, x, x |
+| Java 11 (adoptopenjdk + UseParallelGC)  | xx  | x, x, x |
+| Java 15 (adoptopenjdk + UseParallelGC)  | xx  | x, x, x |
+| Java 8 (graalvm)  | xx  | x, x, x | 
+| Java 11 (graalvm + UseG1GC, default gc)  | xx  | x, x, x |
+| Java 11 (graalvm + UseParallelGC)  | Content Cell  |
 
 
 
