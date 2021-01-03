@@ -13,7 +13,7 @@ import org.interlis2.validator.Validator;
 public class ilivalidator {
     
     public static void main(String... args) {
-        String dataFile = "/home/stefan/Downloads/av_BS_lv95.itf"; 
+        String dataFile = "/home/stefan/Downloads/ch.so.agi_mopublic_2020-09-08.xtf"; 
 
         Settings settings = new Settings();
         settings.setValue(Validator.SETTING_ILIDIRS, Validator.SETTING_DEFAULT_ILIDIRS);
