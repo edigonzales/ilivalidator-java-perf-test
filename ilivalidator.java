@@ -1,5 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//REPOS mavenCentral,jcenter,ehi=http://jars.interlis.ch/
+//REPOS mavenCentral,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ilivalidator:1.11.8 org.apache.commons:commons-lang3:3.11
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
@@ -13,7 +13,7 @@ import org.interlis2.validator.Validator;
 public class ilivalidator {
     
     public static void main(String... args) {
-        String dataFile = "/home/stefan/Downloads/ch.so.agi_mopublic_2020-09-08.xtf"; 
+        String dataFile = "/Users/stefan/Downloads/ch.so.agi.mopublic_xtf/ch.so.agi.mopublic.xtf"; 
 
         Settings settings = new Settings();
         settings.setValue(Validator.SETTING_ILIDIRS, Validator.SETTING_DEFAULT_ILIDIRS);
