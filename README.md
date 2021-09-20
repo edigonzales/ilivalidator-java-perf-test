@@ -63,3 +63,6 @@ MOpublic Kanton Solothurn (2.4 GB). No associations.
 | Java 8 (graalvm)  | 11:52  | 11:58, 11:53, 11:45 | 
 | Java 11 (graalvm + UseG1GC, default gc)  | 14:32  | 14:28, 14:37, 14:31 |
 | Java 11 (graalvm + UseParallelGC)  | 11:54  | 11:58, 11:59, 11:46 |
+
+## 2021-09-XX
+- Apple Silicon M1
