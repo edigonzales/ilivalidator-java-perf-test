@@ -64,5 +64,56 @@ MOpublic Kanton Solothurn (2.4 GB). No associations.
 | Java 11 (graalvm + UseG1GC, default gc)  | 14:32  | 14:28, 14:37, 14:31 |
 | Java 11 (graalvm + UseParallelGC)  | 11:54  | 11:58, 11:59, 11:46 |
 
-## 2021-09-XX
+## performance tests: 2021-11-02 ff
 - Apple Silicon M1
+- Multipass Ubuntu 20.04 VM (4 cpus, 8gb ram)
+- JVM -Xmx2048m
+- ilivalidator 1.11.11
+
+### INTERLIS 1 (ITF)
+
+Amtliche Vermessung Kanton SO (107 files)
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (temurin) | 10:21  | 10:19, 10.20, 10:24 |
+
+
+| Java 17 (graalvm + UseParallelGC)  | 11:54  | 11:58, 11:59, 11:46 |
+
+
+1.8.0_312
+00:10:19.974
+
+1.8.0_312
+00:10:24.545
+
+## Multipass
+```
+multipass launch --name foo --cpu 4 --mem 8G --disk 25G
+multipass shell foo
+```
+
+- unzip
+- zip
+
+```
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
+```
+multipass mount /Users/stefan/sources/ilivalidator-java-perf-test foo:/home/ubuntu/ilivalidator-java-perf-test
+```
+
+.zshrc
+```
+export PATH="$PATH:/Users/stefan/apps/vscode/Visual Studio Code.app/Contents/Resources/app/bin"
+```
+
+Make Java 11 the default SDK with sdkman!
+
+```
+jbang edit --open=code ilivalidator.java
+```
+(Wird obsolet, wenn vscodium für m1 arm verfügbar ist.)
