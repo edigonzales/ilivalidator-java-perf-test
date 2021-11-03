@@ -76,17 +76,26 @@ Amtliche Vermessung Kanton SO (107 files)
 
 | Java Version  | Avg. Time (mins:secs) | Times |
 | ------------- | ------------- | ------------- |
-| Java 8 (temurin) | 10:21  | 10:19, 10.20, 10:24 |
+| Java 8 (temurin) | 10:21  | 10:19, 10:20, 10:24 |
 
 
-| Java 17 (graalvm + UseParallelGC)  | 11:54  | 11:58, 11:59, 11:46 |
+| Java 17 (temurin + UseG1GC, default)  | 10:06 | 10:15, 10:03, 10:01 |
+| Java 17 (temurin + UseParallelGC)  | 9:39 | 9:39, 9:43, 9:34 |
 
 
-1.8.0_312
-00:10:19.974
+| Java 17 (graalvm + UseG1GC, default)  | 11:25 | 11:22, 11:24, 11:28 |
+| Java 17 (graalvm + UseParallelGC)  | 11:07  | 11:22, 10:46, 11:14 |
 
-1.8.0_312
-00:10:24.545
+
+17.0.1
+00:09:38.945
+17.0.1
+00:09:42.965
+17.0.1
+00:09:34.367
+
+//JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
+
 
 ## Multipass
 ```
