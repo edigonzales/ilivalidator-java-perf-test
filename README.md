@@ -87,13 +87,6 @@ Amtliche Vermessung Kanton SO (107 files)
 | Java 17 (graalvm + UseParallelGC)  | 11:07  | 11:22, 10:46, 11:14 |
 
 
-17.0.1
-00:09:38.945
-17.0.1
-00:09:42.965
-17.0.1
-00:09:34.367
-
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
 
