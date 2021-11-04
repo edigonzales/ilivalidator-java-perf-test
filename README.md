@@ -77,14 +77,25 @@ Amtliche Vermessung Kanton SO (107 files)
 | Java Version  | Avg. Time (mins:secs) | Times |
 | ------------- | ------------- | ------------- |
 | Java 8 (temurin) | 10:21  | 10:19, 10:20, 10:24 |
-
-
 | Java 17 (temurin + UseG1GC, default)  | 10:06 | 10:15, 10:03, 10:01 |
 | Java 17 (temurin + UseParallelGC)  | 9:39 | 9:39, 9:43, 9:34 |
-
-
 | Java 17 (graalvm + UseG1GC, default)  | 11:25 | 11:22, 11:24, 11:28 |
 | Java 17 (graalvm + UseParallelGC)  | 11:07  | 11:22, 10:46, 11:14 |
+
+### INTERLIS 2 (XTF)
+
+Nutzungsplanung Kanton sO (53 files)
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (temurin) | 8:02  | 8:05, 8:02, 8:00 |
+| Java 17 (temurin + UseG1GC, default)  | 7:44 | 7:47, 7:47, 7:38 |
+| Java 17 (temurin + UseParallelGC)  | 7:12 | 7:25, 7:08, 7:03 |
+    | Java 17 (graalvm + UseG1GC, default)  | 11:25 | 11:22, 11:24, 11:28 |
+| Java 17 (graalvm + UseParallelGC)  | 11:07  | 11:22, 10:46, 11:14 |
+
+
+
 
 
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
@@ -92,7 +103,7 @@ Amtliche Vermessung Kanton SO (107 files)
 
 ## Multipass
 ```
-multipass launch --name foo --cpu 4 --mem 8G --disk 25G
+multipass launch --name foo --cpus 4 --mem 8G --disk 25G
 multipass shell foo
 ```
 
