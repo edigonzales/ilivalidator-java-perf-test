@@ -84,19 +84,24 @@ Amtliche Vermessung Kanton SO (107 files)
 
 ### INTERLIS 2 (XTF)
 
-Nutzungsplanung Kanton sO (53 files)
+Nutzungsplanung Kanton SO (53 files)
 
 | Java Version  | Avg. Time (mins:secs) | Times |
 | ------------- | ------------- | ------------- |
 | Java 8 (temurin) | 8:02  | 8:05, 8:02, 8:00 |
 | Java 17 (temurin + UseG1GC, default)  | 7:44 | 7:47, 7:47, 7:38 |
 | Java 17 (temurin + UseParallelGC)  | 7:12 | 7:25, 7:08, 7:03 |
-xxxxxxx    | Java 17 (graalvm + UseG1GC, default)  | 11:25 | 11:22, 11:24, 11:28 |
+| Java 17 (graalvm + UseG1GC, default)  | 11:25 | 7:38, 7:42, 11:28 |
 | Java 17 (graalvm + UseParallelGC)  | 7:08 | 7:14, 7:03, 7:07 |
 
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
-
+17.0.1
+00:07:37.748
+17.0.1
+00:07:42.431
+17.0.1
+00:07:37.440
 ## Multipass
 ```
 multipass launch --name foo --cpus 4 --mem 8G --disk 25G
