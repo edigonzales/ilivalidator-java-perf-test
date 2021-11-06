@@ -138,6 +138,7 @@ export PATH="$PATH:/Users/stefan/apps/vscode/Visual Studio Code.app/Contents/Res
 
 Make Java 11 the default SDK with sdkman!
 
+### ilivalidator
 ```
 jbang edit --open=code ilivalidator.java
 ```
@@ -146,3 +147,38 @@ jbang edit --open=code ilivalidator.java
 ```
 jbang ilivalidator.java &> out.log
 ```
+
+### ili2db
+```
+sudo docker run --rm --name editdb -p 54321:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=edit -e PG_READ_PWD=dmluser -e PG_WRITE_PWD=gretl sogis/oereb-db:latest
+```
+
+```
+java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --defaultSrsCode 2056 --nameByTopic --createGeomIdx --createFk --createFkIdx  --createEnumTabs --beautifyEnumDispName --createMetaInfo --createNumChecks --strokeArcs --createBasketCol --createDatasetCol --createTidCol --dbschema dm01 --models DM01AVCH24LV95D --schemaimport
+```
+
+
+```
+jbang ili2db.java &> out.log
+```
+
+
+
+
+### install docker
+
+```
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
