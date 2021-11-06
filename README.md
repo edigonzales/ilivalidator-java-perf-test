@@ -91,17 +91,28 @@ Nutzungsplanung Kanton SO (53 files)
 | Java 8 (temurin) | 8:02  | 8:05, 8:02, 8:00 |
 | Java 17 (temurin + UseG1GC, default)  | 7:44 | 7:47, 7:47, 7:38 |
 | Java 17 (temurin + UseParallelGC)  | 7:12 | 7:25, 7:08, 7:03 |
-| Java 17 (graalvm + UseG1GC, default)  | 11:25 | 7:38, 7:42, 11:28 |
+| Java 17 (graalvm + UseG1GC, default)  | 7:39 | 7:38, 7:42, 7:37 |
 | Java 17 (graalvm + UseParallelGC)  | 7:08 | 7:14, 7:03, 7:07 |
+
+MOpublic Kanton Solothurn (1 file, 2.4 GB)
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (temurin) | 7:47  | 7:51, 7:45, 7:44 |
+| Java 17 (temurin + UseG1GC, default)  | 7:59 | 8:02, 7:59, 7:57 |
+| Java 17 (temurin + UseParallelGC)  | 7:22 | 7:22, 7:22, 7:21 |
+| Java 17 (graalvm + UseG1GC, default)  | 8:03 | 8:03, 8:00, 8:07 |
+| Java 17 (graalvm + UseParallelGC)  | 7:21 | 7:22, 7:23, 7:18 |
+
+Vergleich MOpublic ohne Multipass:
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 17 (temurin + UseParallelGC)  | 9:10 | 9:14, 9:10, 9:06 |
+
+
 
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
-17.0.1
-00:07:37.748
-17.0.1
-00:07:42.431
-17.0.1
-00:07:37.440
 ## Multipass
 ```
 multipass launch --name foo --cpus 4 --mem 8G --disk 25G
@@ -131,3 +142,7 @@ Make Java 11 the default SDK with sdkman!
 jbang edit --open=code ilivalidator.java
 ```
 (Wird obsolet, wenn vscodium für m1 arm verfügbar ist.)
+
+```
+jbang ilivalidator.java &> out.log
+```

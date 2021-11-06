@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ilivalidator:1.11.11 org.apache.commons:commons-lang3:3.11
-//JAVA_OPTIONS -Xmx2048m
+//JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
 import static java.lang.System.*;
 
@@ -27,20 +27,22 @@ public class ilivalidator {
             }
         });
         
-        Settings settings = new Settings();
-        settings.setValue(Validator.SETTING_ILIDIRS, Validator.SETTING_DEFAULT_ILIDIRS);
-        settings.setValue(Validator.SETTING_ALL_OBJECTS_ACCESSIBLE, Validator.TRUE);
-
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-
-        for (File dataFile : files) {
-            System.out.println(dataFile);
-            boolean valid = Validator.runValidation(dataFile.getAbsolutePath(), settings);
+        for (int i=0; i<3; i++) {
+            Settings settings = new Settings();
+            settings.setValue(Validator.SETTING_ILIDIRS, Validator.SETTING_DEFAULT_ILIDIRS);
+            settings.setValue(Validator.SETTING_ALL_OBJECTS_ACCESSIBLE, Validator.TRUE);
+    
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
+    
+            for (File dataFile : files) {
+                System.out.println(dataFile);
+                boolean valid = Validator.runValidation(dataFile.getAbsolutePath(), settings);
+            }
+    
+            stopWatch.stop();
+            out.println(System.getProperty("java.version"));
+            out.println(stopWatch.formatTime());    
         }
-
-        stopWatch.stop();
-        out.println(System.getProperty("java.version"));
-        out.println(stopWatch.formatTime());
     }
 }
