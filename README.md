@@ -70,7 +70,9 @@ MOpublic Kanton Solothurn (2.4 GB). No associations.
 - JVM -Xmx2048m
 - ilivalidator 1.11.11
 
-### INTERLIS 1 (ITF)
+### ilivalidator 
+
+#### INTERLIS 1 (ITF)
 
 Amtliche Vermessung Kanton SO (107 files)
 
@@ -82,7 +84,7 @@ Amtliche Vermessung Kanton SO (107 files)
 | Java 17 (graalvm + UseG1GC, default)  | 11:25 | 11:22, 11:24, 11:28 |
 | Java 17 (graalvm + UseParallelGC)  | 11:07  | 11:22, 10:46, 11:14 |
 
-### INTERLIS 2 (XTF)
+#### INTERLIS 2 (XTF)
 
 Nutzungsplanung Kanton SO (53 files)
 
@@ -110,8 +112,36 @@ Vergleich MOpublic ohne Multipass:
 | Java 17 (temurin + UseParallelGC)  | 9:10 | 9:14, 9:10, 9:06 |
 
 
+### ili2db
+
+#### INTERLIS 1 (ITF)
+
+Amtliche Vermessung Kanton SO (107 files)
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (temurin) | 25:45  | 25:15, 26:01, 25:59 |
+| Java 17 (temurin + UseG1GC, default)  | 25:12 | 25:13, 25:12, 25:11 |
+| Java 17 (temurin + UseParallelGC)  | 24:53 | 24:56, 24:46, 24:57 |
+| Java 17 (graalvm + UseG1GC, default)  | 25:37 | 25:36, 25:28, 25:46 |
+| Java 17 (graalvm + UseParallelGC)  | 25:00  | 25:11, 24:49, 25:00 |
+
+Nutzungsplanung ~ 1 minute
+
+MOpublic Kanton Solothurn (1 file, 2.4 GB)
+
+| Java Version  | Avg. Time (mins:secs) | Times |
+| ------------- | ------------- | ------------- |
+| Java 8 (temurin) | 12:26  | ~~16:41~~, 12:09, 12:43 |
+| Java 17 (temurin + UseG1GC, default)  | 12:36 | 12:12, 12:17, 13:19 |
+| Java 17 (temurin + UseParallelGC)  | 11:48| 12:01, 11:43, 11:41 |
+| Java 17 (graalvm + UseG1GC, default)  | 12:37 | 12:12, 12:14, 13:27 |
+| Java 17 (graalvm + UseParallelGC)  | 11:47 | ~~18:30~~, 11:50, 11:44 |
+
 
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
+org.postgresql:postgresql:42.1.4.jre6 
+
 
 ## Multipass
 ```
@@ -157,13 +187,16 @@ sudo docker run --rm --name editdb -p 54321:5432 -e POSTGRES_PASSWORD=mysecretpa
 java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --defaultSrsCode 2056 --nameByTopic --createGeomIdx --createFk --createFkIdx  --createEnumTabs --beautifyEnumDispName --createMetaInfo --createNumChecks --strokeArcs --createBasketCol --createDatasetCol --createTidCol --dbschema dm01 --models DM01AVCH24LV95D --schemaimport
 ```
 
+```
+java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --defaultSrsCode 2056 --nameByTopic --createGeomIdx --createFk --createFkIdx  --createEnumTabs --beautifyEnumDispName --createMetaInfo --createNumChecks --strokeArcs --createBasketCol --createDatasetCol --createTidCol --dbschema npl --models SO_Nutzungsplanung_20171118 --schemaimport
+```
+```
+java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --defaultSrsCode 2056 --nameByTopic --createGeomIdx --createFk --createFkIdx  --createEnumTabs --beautifyEnumDispName --createMetaInfo --createNumChecks --strokeArcs --createBasketCol --createDatasetCol --createTidCol --dbschema mopublic --models SO_AGI_MOpublic_20190424 --schemaimport
+```
 
 ```
 jbang ili2db.java &> out.log
 ```
-
-
-
 
 ### install docker
 

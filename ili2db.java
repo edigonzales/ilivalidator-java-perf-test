@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,ehi=http://jars.interlis.ch/
-//DEPS ch.interlis:ili2pg:4.6.0 org.postgresql:postgresql:42.1.4.jre6 org.apache.commons:commons-lang3:3.11
+//DEPS ch.interlis:ili2pg:4.6.0 org.postgresql:postgresql:42.3.1 org.apache.commons:commons-lang3:3.11
 //JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
 
 import static java.lang.System.*;
@@ -27,13 +27,13 @@ public class ili2db {
         File [] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".itf");
+                return name.toLowerCase().endsWith(".xtf");
             }
         });
         
         for (int i=0; i<3; i++) {
            
-            var config = new Config();
+            Config config = new Config();
             new PgMain().initConfig(config);
             config.setFunction(Config.FC_REPLACE);
             config.setImportTid(true);
@@ -43,16 +43,18 @@ public class ili2db {
             config.setDbdatabase("edit");
             config.setDbusr("ddluser");
             config.setDbpwd("ddluser");
-            config.setDbschema("dm01");
+            config.setDbschema("mopublic");
             config.setDburl("jdbc:postgresql://localhost:54321/edit");
-            config.setModels("DM01AVCH24LV95D");
+            config.setModels("SO_AGI_MOpublic_20190424");
             config.setConfigReadFromDb(true);
             config.setBasketHandling(Config.BASKET_HANDLING_READWRITE);
             config.setTidHandling(Config.TID_HANDLING_PROPERTY);        
             config.setCreateDatasetCols(Config.CREATE_DATASET_COL);
             Config.setStrokeArcs(config, Config.STROKE_ARCS_ENABLE);
             config.setValidation(false);
-            
+            //config.setFetchSize(10000);
+            //config.setBatchSize(10000);
+
             config.setItfTransferfile(true);
 
             StopWatch stopWatch = new StopWatch();
