@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ili2pg:4.6.0 org.postgresql:postgresql:42.3.1 org.apache.commons:commons-lang3:3.11
-//JAVA_OPTIONS -XX:+UseParallelGC -Xmx2048m
+//JAVA_OPTIONS -XX:+UseParallelGC -Xmx6048m
 
 import static java.lang.System.*;
 
@@ -22,7 +22,7 @@ public class ili2db {
     public static void main(String... args) throws Ili2dbException {
         //String dataFile = "/Users/stefan/Downloads/ch.so.agi.mopublic_xtf/ch.so.agi.mopublic.xtf"; 
         //String dataFile = "/Users/stefan/Downloads/av_BS_lv95/Basel.itf"; 
-        File dir = new File("./data/");
+        File dir = new File("./2021_SWISSTLM3D_INTERLIS2_CHLV95_LN02/");
 
         File [] files = dir.listFiles(new FilenameFilter() {
             @Override
@@ -31,7 +31,7 @@ public class ili2db {
             }
         });
         
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<1; i++) {
            
             Config config = new Config();
             new PgMain().initConfig(config);
@@ -43,9 +43,9 @@ public class ili2db {
             config.setDbdatabase("edit");
             config.setDbusr("ddluser");
             config.setDbpwd("ddluser");
-            config.setDbschema("mopublic");
+            config.setDbschema("swisstlm");
             config.setDburl("jdbc:postgresql://localhost:54321/edit");
-            config.setModels("SO_AGI_MOpublic_20190424");
+            config.setModels("swissTLM3D_ili2_LV95_V1_9");
             config.setConfigReadFromDb(true);
             config.setBasketHandling(Config.BASKET_HANDLING_READWRITE);
             config.setTidHandling(Config.TID_HANDLING_PROPERTY);        
@@ -55,7 +55,7 @@ public class ili2db {
             //config.setFetchSize(10000);
             //config.setBatchSize(10000);
 
-            config.setItfTransferfile(true);
+            config.setItfTransferfile(false);
 
             StopWatch stopWatch = new StopWatch();
             stopWatch.start();

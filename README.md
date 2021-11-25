@@ -195,7 +195,12 @@ java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbda
 ```
 
 ```
-jbang ili2db.java &> out.log
+java -jar ili2pg-4.6.0/ili2pg-4.6.0.jar --dbhost localhost --dbport 54321 --dbdatabase edit --dbusr ddluser --dbpwd ddluser --defaultSrsCode 2056 --nameByTopic --createGeomIdx --createFk --createFkIdx  --createEnumTabs --beautifyEnumDispName --createMetaInfo --createNumChecks --strokeArcs --createBasketCol --createDatasetCol --createTidCol --dbschema swisstlm --models swissTLM3D_ili2_LV95_V1_9 --schemaimport
+
+```
+
+```
+jbang ili2db.java &> out_tlm.log
 ```
 
 ### install docker
