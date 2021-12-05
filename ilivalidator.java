@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //REPOS mavenCentral,ehi=http://jars.interlis.ch/
 //DEPS ch.interlis:ilivalidator:1.11.11 org.apache.commons:commons-lang3:3.11
-//JAVA_OPTIONS -Xmx2048m
+//JAVA_OPTIONS -Xmx2048m -XX:+UseParallelGC -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler
 
 import static java.lang.System.*;
 
@@ -23,7 +23,7 @@ public class ilivalidator {
         File [] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".xtf");
+                return name.toLowerCase().endsWith(".itf");
             }
         });
         
